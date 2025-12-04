@@ -1,0 +1,9 @@
+version: 1
+type: pipeline-template
+
+name: Simple pipeline-template
+description: Hello World Pipeline
+parameters:
+  - name: myName
+    type: string
+    displayName: A name to say
