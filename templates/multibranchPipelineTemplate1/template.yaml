@@ -1,0 +1,20 @@
+name: A Multibranch Template
+type: pipeline-template
+templateType: MULTIBRANCH
+parameters:
+  - name: repoUrl
+    type: string
+    displayName: Repo
+  - name: myName
+    type: string
+    displayName: A name to say
+multibranch:
+  branchSource:
+    git:
+      remote: ${repoUrl}
+    strategy:
+      props:
+      - $class: DurabilityHintBranchProperty
+        hint: MAX_SURVIVABILITY
+  orphanedItemStrategy:
+    daysToKeep: 3
